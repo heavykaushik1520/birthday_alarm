@@ -12,9 +12,11 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // ✅ Allow requests from frontend
+const allowedOrigins = ['http://localhost:5173', 'https://artiststation.co.in'];
+
 app.use(
   cors({
-    origin: "http://localhost:5173", // Replace with your frontend URL
+    origin: allowedOrigins,
     credentials: true,
   })
 );
