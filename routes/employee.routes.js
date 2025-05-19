@@ -34,15 +34,7 @@ const { authenticate, authorizeRoles } = require('../middleware/auth');
 // Protect all employee routes — only accessible to logged-in admins
 router.use(authenticate, authorizeRoles('admin', 'superadmin'));
 
-// router.get('/paginated', getPaginatedEmployees); //  pagination
-// router.post('/', createEmployee);
-// router.get('/', getAllEmployees);
-// router.get('/:id', getEmployeeById);
-// router.put('/:id', updateEmployee);
-// router.delete('/:id', deleteEmployee);
-// router.get('/upcoming-birthdays', getUpcomingBirthdays);
 
-// More specific routes first
 router.get('/paginated', getPaginatedEmployees);
 router.get('/upcoming-birthdays', getUpcomingBirthdays);
 

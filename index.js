@@ -24,6 +24,11 @@ app.use(
 // Middleware
 app.use(express.json()); // to parse JSON requests
 
+
+app.get('/', (req, res) => {
+  res.send('🎉 Birthday Alarm API is working on artiststation.co.in!');
+});
+
 // Routes
 app.use("/api/admin", adminRoutes);
 app.use("/api/employees", employeeRoutes);
