@@ -18,7 +18,7 @@ const getBirthdaysIn2Days = async () => {
 };
 
 const birthdayReminderJob = cron.schedule(
-  "30 18 * * *",
+  "0 9 * * *",
   async () => {
     console.log("Checking for upcoming birthdays...");
     const upcomingBirthdays = await getBirthdaysIn2Days();
@@ -55,7 +55,7 @@ const birthdayReminderJob = cron.schedule(
         </table>
     `;
       await sendMail(
-        "kaushikmandavkar6@gmail.com",
+        "rajneesh.j77@gmail.com",
         `🎂 Upcoming Birthday: ${employee.employeeName}`,
         message
       );
