@@ -16,3 +16,5 @@ sequelize.authenticate()
   .catch((err) => {
     console.error("❌ Cron worker DB connection error:", err);
   });
+
+

@@ -58,6 +58,8 @@ require("dotenv").config();
 const sequelize = require("./config/database");
 const adminRoutes = require("./routes/admin.routes");
 const employeeRoutes = require("./routes/employee.routes");
+const birthdayReminderJob = require("./jobs/birthdayReminder");
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -75,6 +77,16 @@ app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("🎉 Birthday Alarm API is working on artiststation.co.in!");
+});
+
+app.get("/run-cron", async (req, res) => {
+  const key = req.query.key;
+  if (key !== process.env.CRON_SECRET_KEY) {
+    return res.status(403).send("❌ Forbidden: Invalid key");
+  }
+
+  await birthdayReminderJob.execute(); // ✅ Runs job once
+  res.send("✅ Birthday reminder executed manually.");
 });
 
 app.use("/api/admin", adminRoutes);
