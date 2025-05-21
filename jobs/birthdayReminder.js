@@ -141,7 +141,7 @@ const runJob = async () => {
 
 // Scheduled cron job (disabled by default, good for local dev or future use)
 const birthdayReminderJob = cron.schedule(
-  "10 12 * * *",
+  "53 15 * * *",
   runJob,
   {
     timezone: "Asia/Kolkata",

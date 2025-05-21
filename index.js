@@ -62,7 +62,9 @@ const birthdayReminderJob = require("./jobs/birthdayReminder");
 
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+// const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
+
 
 const allowedOrigins = ["http://localhost:5173", "https://artiststation.co.in"];
 
